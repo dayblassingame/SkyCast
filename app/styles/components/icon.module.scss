@@ -1,0 +1,28 @@
+@import '../base/variables.scss';
+@import '../base/typography.scss';
+
+.logo{
+    color: $lightBlue;
+    height: 50%;
+    width: auto;
+    rotate: 25deg;
+
+    &:hover{
+        rotate: 0deg;
+    }
+}
+
+
+.logoMini{
+    color: $lightBlue;
+    height: 10%;
+    width: auto;
+    rotate: 25deg;
+
+    margin-bottom: $margin-medium;
+
+    @media screen and (max-width: $media-breakpoint-small){
+        height: 20%;
+        margin-bottom: $margin-extralarge;
+    }
+}
