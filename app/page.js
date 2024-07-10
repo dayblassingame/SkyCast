@@ -1,8 +1,10 @@
 import React from "react";
 import { FaUmbrella } from "react-icons/fa";
+import Link from "next/link";
+
 import icons from './styles/components/icon.module.scss';
 import button from './styles/components/button.module.scss';
-import styles from './styles/components/page.module.scss';
+import styles from './styles/components/landing.module.scss';
 
 
 export default function Landing(){
@@ -17,7 +19,7 @@ export default function Landing(){
                 <FaUmbrella className={icons.logoMini}/>
                 <h1> SkyCast </h1>
                 <p> Weather App </p>
-                <a href='#' className={button.button}> Get Started </a>
+                <Link href="/dashboard" className={button.button}> Get Started</Link>
             </div>
         </div>
       </main>
