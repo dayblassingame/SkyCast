@@ -1,0 +1,69 @@
+@import '../base/typography';
+@import '../base/variables';
+
+.landingContainer{
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  padding: $padding-large;
+  justify-content: space-evenly;
+
+  background-color: $navy;
+
+  div{
+      width: 45%;
+  }
+
+  .landingLeft{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 20px;
+      background-color: $overlay;
+
+      @media screen and (max-width: $media-breakpoint-small){
+        display: none;
+      }
+  }
+
+  .landingRight{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      @media screen and (max-width: $media-breakpoint-small){
+        width: 100%;
+
+      }
+
+
+      h1{
+          color: white;
+          letter-spacing: 2px;
+          line-height: 60px;
+          font-size: 45px;
+          letter-spacing: 1.5px;
+
+          
+      }
+
+      p{
+          color: $lightgrey;
+          margin-bottom: $margin-extralarge;
+          font-size: 20px;
+      }
+
+      a{
+          font-size: 14px;
+          padding: $padding-small $padding-large;
+
+          @media screen and (max-width: $media-breakpoint-small){
+            font-size: 18px;
+          }
+      }
+
+    }
+}
