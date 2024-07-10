@@ -22,6 +22,10 @@
 
       border-radius: 20px;
       background-color: $overlay;
+
+      @media screen and (max-width: $media-breakpoint-small){
+        display: none;
+      }
   }
 
   .landingRight{
@@ -30,24 +34,36 @@
       justify-content: center;
       align-items: center;
 
+      @media screen and (max-width: $media-breakpoint-small){
+        width: 100%;
+
+      }
+
+
       h1{
           color: white;
           letter-spacing: 2px;
-          //margin-bottom: $margin-extrasmall;
-          line-height: 4.4vw;
-          font-size: 2.8vw;
+          line-height: 60px;
+          font-size: 45px;
           letter-spacing: 1.5px;
+
+          
       }
 
       p{
           color: $lightgrey;
-          margin-bottom: $margin-large;
-          font-size: 1.3vw;
+          margin-bottom: $margin-extralarge;
+          font-size: 20px;
       }
 
       a{
           font-size: 14px;
           padding: $padding-small $padding-large;
+
+          @media screen and (max-width: $media-breakpoint-small){
+            font-size: 18px;
+          }
       }
-  }
+
+    }
 }

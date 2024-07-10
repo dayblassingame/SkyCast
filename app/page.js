@@ -14,7 +14,7 @@ export default function Landing(){
                 <FaUmbrella className={icons.logo} />
             </div>
             <div className={styles.landingRight}> 
-                <FaUmbrella className={icons.logoMini} style={{marginBottom: "30px"}}/>
+                <FaUmbrella className={icons.logoMini}/>
                 <h1> SkyCast </h1>
                 <p> Weather App </p>
                 <a href='#' className={button.button}> Get Started </a>
