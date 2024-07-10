@@ -1,0 +1,16 @@
+@import '../base/variables.scss';
+
+.logo{
+    color: $lightBlue;
+    height: 50%;
+    width: auto;
+    rotate: 25deg;
+}
+
+
+.logoMini{
+    color: $lightBlue;
+    height: 10%;
+    width: auto;
+    rotate: 25deg;
+}
