@@ -10,7 +10,7 @@ export default function CurrentWeather(){
                 <h1>Temperature</h1>
             </div>
             <div>
-                <img name='weather status'/>
+                <img name='weather status' />
             </div>
         </div>
     )
