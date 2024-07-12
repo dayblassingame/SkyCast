@@ -5,6 +5,7 @@ import { MdWaterDrop } from "react-icons/md";
 import { FaSun } from "react-icons/fa";
 import styles from "./styles/airConditions.module.scss";
 import buttonStyles from "../styles/components/button.module.scss";
+import { PiCircleBold } from "react-icons/pi";
 
 export default function AirConditions(){
 
@@ -17,7 +18,7 @@ export default function AirConditions(){
             <div className={styles.main}> 
                 <div className={styles.section}>
                     <label><IoThermometerOutline/> Real Feel</label>
-                    <h3>30</h3>
+                    <span><h3>30</h3><PiCircleBold className={styles.icon} /></span>
                 </div>
                 <div className={styles.section}>
                     <label><FaWind/> Wind</label>
