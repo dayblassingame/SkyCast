@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 
-export default function search(){
+export default function Search(){
     const searchForm = useRef(null);
 
     useEffect(()=>{

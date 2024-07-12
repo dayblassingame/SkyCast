@@ -1,6 +1,6 @@
 import react from 'react';
 
-export default function currentWeather(){
+export default function CurrentWeather(){
 
     return(
         <div>
