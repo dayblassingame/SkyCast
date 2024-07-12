@@ -1,0 +1,61 @@
+@import '../../styles/base/typography';
+@import '../../styles/base/variables';
+
+.container{
+    display: flex;
+    flex-direction: column;
+    padding: $padding-small $padding-medium;
+
+    background-color: $overlay;
+    border-radius: 20px;
+
+    color: $lightgrey;
+
+    .containerHead{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        label{
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 14px;
+            line-height: 24px;
+        }
+
+        button{
+            color: white;
+            width: fit-content;
+            padding: $padding-extrasmall $padding-small;
+        }
+
+    }
+
+    .main{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .section{
+            width: 50%;
+            display: flex;
+            padding: $padding-small 0px;
+            flex-direction: column;
+
+            label{
+                font-size: 13px;
+                line-height: 18px;
+            }
+
+            h3{
+                color: $grayishwhite;
+                font-size: 18px;
+                line-height: 24px;
+                letter-spacing: 0.5px;
+                padding-left: $padding-medium;
+            }
+        }
+    }
+}

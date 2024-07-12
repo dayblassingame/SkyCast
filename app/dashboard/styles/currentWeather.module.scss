@@ -1,0 +1,44 @@
+@import '../../styles/base/typography';
+@import '../../styles/base/variables';
+
+
+.container{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: $padding-small $padding-large;
+    color: white;
+
+    .left{
+        width: 65%;
+
+        h2{
+            font-size: 26px;
+            line-height: 38px;
+        }
+
+        p{
+            font-size: 14px;
+            line-height: 28px;
+            color: $lightgrey;
+            margin-bottom: $margin-medium;
+        }
+
+        h1{
+            display: inline-block;
+            letter-spacing: 1.5px;
+            font-size: 36px;
+        }
+
+        .icon{
+            display: inline-block;
+            margin-bottom: 18px;
+            font-size: 13px;
+        }
+    }
+
+    .right{
+        width: 35%;
+    }
+
+}

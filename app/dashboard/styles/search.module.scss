@@ -1,0 +1,30 @@
+@import "../../styles/base/typography";
+@import "../../styles/base/variables";
+
+.container{
+    width: 100%;
+
+    form{
+        width: inherit;
+
+        input{
+            width: inherit;
+            height: 40px;
+            padding: $padding-small $padding-small;
+            border-radius: 12px;
+            background-color: $overlay;
+            border: none;
+
+            color: white;
+            font-size: 14px;
+
+            &::placeholder{
+                color: white;
+            }
+
+            &:focus{
+                outline: 0.5px solid white;
+            }
+        }
+    }
+}

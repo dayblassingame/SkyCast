@@ -1,16 +1,18 @@
-import Image from 'next/image';
-import react from 'react';
+import Image from "next/image";
+import react from "react";
+import styles from "./styles/currentWeather.module.scss";
+import { PiCircleBold } from "react-icons/pi";
 
 export default function CurrentWeather(){
 
     return(
-        <div>
-            <div>
-                <h2>City Name</h2>
-                <p>Change of rain: %</p>
-                <h1>Temperature</h1>
+        <div className={styles.container}>
+            <div className={styles.left}>
+                <h2>Reidsville, NC</h2>
+                <p>Change of rain: 2%</p>
+                <h1>70</h1> <PiCircleBold className={styles.icon}/>
             </div>
-            <div>
+            <div className={styles.right}>
                 <Image alt="weather status" name= "weather status" />
             </div>
         </div>
