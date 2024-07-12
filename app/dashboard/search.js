@@ -6,11 +6,11 @@ export default function Search(){
     const searchForm = useRef(null);
 
     useEffect(()=>{
-        searchForm.current.addEventListener('onKeyPress', keyPress);
+        searchForm.current.addEventListener("onKeyPress", keyPress);
     },[])
 
     const keyPress=(event)=>{
-        if(event.key==='enter'){
+        if(event.key==="enter"){
             searchForm.submit();
         }
     }
@@ -19,9 +19,9 @@ export default function Search(){
     }
 
     return(
-        <div className=''>
+        <div className="">
             <form ref={searchForm} onSubmit={handleSubmit}>
-                <input id='searchInput' name='search' placeholder="Search for cities"/>
+                <input id="searchInput" name="search" placeholder="Search for cities"/>
             </form>
         </div>
     )

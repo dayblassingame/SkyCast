@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import react from 'react';
 
 export default function CurrentWeather(){
@@ -10,7 +11,7 @@ export default function CurrentWeather(){
                 <h1>Temperature</h1>
             </div>
             <div>
-                <img name='weather status' />
+                <Image name= "weather status" />
             </div>
         </div>
     )
