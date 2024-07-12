@@ -11,7 +11,7 @@ export default function CurrentWeather(){
                 <h1>Temperature</h1>
             </div>
             <div>
-                <Image name= "weather status" />
+                <Image alt="weather status" name= "weather status" />
             </div>
         </div>
     )

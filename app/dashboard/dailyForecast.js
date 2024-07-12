@@ -4,7 +4,7 @@ export default function DailyForecast(){
 
     return(
         <ul>
-            <label>Today's Forecast</label>
+            <label>"Today's Forecast"</label>
         </ul>
     )
 }
