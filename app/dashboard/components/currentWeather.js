@@ -8,7 +8,7 @@ export default function CurrentWeather(){
     return(
         <div className={styles.container}>
             <div className={styles.left}>
-                <h2>Reidsville, NC</h2>
+                <h2>Reidsville</h2>
                 <p>Change of rain: 2%</p>
                 <h1>70</h1> <PiCircleBold className={styles.icon}/>
             </div>

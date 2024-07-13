@@ -1,0 +1,24 @@
+@import "../../styles/base/typography";
+@import "../../styles/base/variables";
+
+.container{
+    display: flex;
+    justify-content: left;
+
+    .left{
+        width: 63%;
+
+        form{
+            display: flex;
+            flex-direction: column;
+            overflow: scroll;
+            scrollbar-width: 0px;
+        }
+    }
+
+    .right{
+        display: flex;
+        flex-direction: column;
+        width: 35%;
+    }
+}

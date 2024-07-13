@@ -4,7 +4,7 @@ import { FaWind } from "react-icons/fa";
 import { MdWaterDrop } from "react-icons/md";
 import { FaSun } from "react-icons/fa";
 import styles from "./styles/airConditions.module.scss";
-import buttonStyles from "../styles/components/button.module.scss";
+import buttonStyles from "../../styles/components/button.module.scss";
 import { PiCircleBold } from "react-icons/pi";
 
 export default function AirConditions(){

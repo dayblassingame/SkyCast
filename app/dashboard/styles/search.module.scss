@@ -2,13 +2,13 @@
 @import "../../styles/base/variables";
 
 .container{
-    width: 100%;
+    width: 65%;
 
     form{
-        width: inherit;
+        width: 100%;
 
         input{
-            width: inherit;
+            width: 100%;
             height: 40px;
             padding: $padding-small $padding-small;
             border-radius: 12px;
