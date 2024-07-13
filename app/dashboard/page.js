@@ -7,7 +7,7 @@ import CityDashboard from "./cityDashboard";
 import { FaUmbrella } from "react-icons/fa";
 import { IoIosList , IoIosPartlySunny } from "react-icons/io";
 
-export default function comingSoon(){
+export default function Dashboard(){
     const [dash, setDash] = useState({
         city: false,
         weather: true
