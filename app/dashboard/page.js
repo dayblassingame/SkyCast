@@ -23,7 +23,7 @@ export default function comingSoon(){
                     <button onClick={()=> (setDash({city: true, weather: false}))} className={city ? styles.selected : ''}><IoIosList className={styles.icon}/>Cities</button>
                 </div>
                 <div className={styles.right}>
-                    <Search/>
+                    <Search clickHandler={()=>(setDash({city: true, weather: false}))}/>
                     {city && <CityDashboard/> }
                     {weather && <WeatherDashboard/>}
                 </div>
