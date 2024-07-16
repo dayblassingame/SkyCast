@@ -45,7 +45,7 @@ export default function Dashboard() {
             <Search
               clickHandler={() => setDash({ city: true, weather: false })}
             />
-            {city && <CityDashboard />}
+            {/* {city && <CityDashboard />} */}
             {weather && <WeatherDashboard />}
           </div>
         </div>

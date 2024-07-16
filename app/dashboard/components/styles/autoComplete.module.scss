@@ -1,0 +1,32 @@
+@import "../../../styles/base/typography";
+@import "../../../styles/base/variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+  position: fixed;
+  width: 55%;
+  border-radius: 20px;
+  background-color: $grayishwhite;
+
+  .item {
+    width: 100%;
+    padding: 15px $padding-extrasmall;
+    background-color: $overlay;
+    border: none;
+    text-align: left;
+    color: $navy;
+
+    &:hover,
+    &:active {
+      background-color: $navy;
+      color: white;
+    }
+
+    &:active {
+      font-weight: 600;
+    }
+  }
+}

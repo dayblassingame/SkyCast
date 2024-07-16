@@ -4,7 +4,7 @@ import { current } from "@reduxjs/toolkit";
 
 //gets current city weather and 5 day forecast from WeatherAPI
 export async function fetchCityWeather(cityId, apiKey) {
-  const endpoint = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=id:${cityId}&days=5`;
+  const endpoint = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=id:${cityId}&days=6`;
   let weatherData = {};
   weatherData.id = cityId;
   await axios
@@ -23,6 +23,7 @@ function formatWeatherData(response) {
   let data = {};
   data.city = response.location.name;
   data.region = response.location.region;
+  data.date = response.location.localtime;
   data.currentWeather = {
     precipitationAmount: response.current.precip_in,
     temperature: response.current.temp_f,
@@ -39,6 +40,7 @@ function formatWeatherData(response) {
   let weeklyForecast = [];
   response.forecast.forecastday.forEach((day) => {
     weeklyForecast.push({
+      date: day.date,
       icon: day.day.condition.icon,
       iconText: day.day.condition.text,
       min: day.day.mintemp_f,
@@ -69,7 +71,8 @@ function getHourlyForecast(forecast, localEpoch) {
     hourlyForecast.push({
       time: data[index].time,
       temp: data[index].temp_f,
-      condition: data[index].condition.icon,
+      icon: data[index].condition.icon,
+      iconText: data[index].condition.text,
     });
     index += 4;
   }

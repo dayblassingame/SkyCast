@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { searchApi } from "./api/searchAPI";
 import styles from "./styles/search.module.scss";
-import AutoComplete from "./autoComplete";
+import AutoComplete from "./components/autoComplete";
 import { useAppDispatch } from "../lib/hooks";
 import { fetchCityWeather } from "./api/fetchCityWeather";
 import { setWeather } from "../lib/weatherSlice";
@@ -27,10 +27,12 @@ export default function Search({ clickHandler }) {
     return () => clearTimeout(debounce);
   }, [search]);
 
-  function setCurrentCity(e) {
+  async function setCurrentCity(e) {
     fetchCityWeather(e.target.id, apiKey)
       .then((res) => dispatch(setWeather(res)))
       .catch((err) => setError(true));
+    setSearch("");
+    setAutoComplete([]);
   }
 
   return (

@@ -6,6 +6,7 @@ export const weatherSlice = createSlice({
     id: "",
     city: "",
     region: "",
+    date: "",
     currentWeather: {
       precipitationAmount: "",
       temperature: "",
@@ -21,9 +22,8 @@ export const weatherSlice = createSlice({
       uvIndex: "",
     },
   },
-
   reducers: {
-    setWeather: (state, action) => {
+    setWeather: (state = initialState, action) => {
       const newCity = action.payload.id;
       state.id = newCity;
       state.city = action.payload.city;
@@ -32,9 +32,7 @@ export const weatherSlice = createSlice({
       state.weeklyForecast = action.payload.weeklyForecast;
       state.dailyForecast = action.payload.dailyForecast;
       state.airConditions = action.payload.airConditions;
-
       if (!state.searchHistory.includes(newCity)) {
-        console.log(state.searchHistory);
         state.searchHistory.push(newCity); // Add new city to search history
       }
     },
