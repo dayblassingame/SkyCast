@@ -18,7 +18,7 @@ export default function CityDashboard({ setDash }) {
 
   useEffect(() => {
     setError(cityList.length == 0);
-  });
+  }, [cityList.length]);
 
   async function setCurrentCity(e) {
     fetchCityWeather(e.target.id, apiKey)
@@ -46,7 +46,7 @@ export default function CityDashboard({ setDash }) {
   ).slice(0, 4);
 
   return !error ? (
-    <div className={styles.container}>
+    <div id="cityDashboard" className={styles.container}>
       <ul className={styles.left}>
         {cityList.map((cityData) => (
           <City

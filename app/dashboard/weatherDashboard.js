@@ -26,10 +26,10 @@ export default function WeatherDashboard() {
 
   useEffect(() => {
     setError(current.city == "");
-  });
+  }, [current.city]);
 
   return !error ? (
-    <div className={styles.container}>
+    <div id="weatherDashboard" className={styles.container}>
       <div className={styles.left}>
         <CurrentWeather data={current} />
         <DailyForecast data={dailyForecast} />

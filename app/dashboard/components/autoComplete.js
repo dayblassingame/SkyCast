@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles/autoComplete.module.scss";
 
-export default function AutoComplete({ list, setCity }) {
+export default function AutoComplete({ list, setCity, closeAutocomplete }) {
   return (
     <div className={styles.container}>
       {list.map((item, index) => (

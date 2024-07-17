@@ -32,7 +32,7 @@ export default function AirConditions({ data }) {
         </div>
         <div className={styles.section}>
           <label>
-            <MdWaterDrop /> Chance of Rain
+            <MdWaterDrop /> Humidity
           </label>
           <h3>{data.humidity}%</h3>
         </div>
