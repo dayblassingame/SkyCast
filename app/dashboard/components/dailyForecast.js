@@ -10,8 +10,8 @@ export default function DailyForecast({ backgroundColor, data }) {
     >
       <label>{"Today's Forecast"}</label>
       <ul>
-        {data.map((item) => (
-          <DailyForecastItem data={item} />
+        {data.map((item, index) => (
+          <DailyForecastItem data={item} key={index} />
         ))}
       </ul>
     </div>

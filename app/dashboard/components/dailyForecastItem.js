@@ -5,7 +5,6 @@ import styles from "./styles/dailyForecastItem.module.scss";
 
 export default function DailyForecastItem({ data }) {
   const time = getStandardHour(new Date(data.time).getUTCHours());
-  console.log(time);
   const iconSrc = "https:" + data.icon;
 
   return (

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { Staatliches } from "next/font/google";
 
 export const weatherSlice = createSlice({
   name: "weather",
@@ -14,7 +15,8 @@ export const weatherSlice = createSlice({
     },
     weeklyForecast: [],
     dailyForecast: [],
-    searchHistory: [],
+    searchHistoryIds: [],
+    searchHistoryData: [],
     airConditions: {
       realFeel: "",
       windSpeed: "",
@@ -25,6 +27,7 @@ export const weatherSlice = createSlice({
   reducers: {
     setWeather: (state = initialState, action) => {
       const newCity = action.payload.id;
+      if (newCity == "") return;
       state.id = newCity;
       state.city = action.payload.city;
       state.region = action.payload.region;
@@ -32,12 +35,22 @@ export const weatherSlice = createSlice({
       state.weeklyForecast = action.payload.weeklyForecast;
       state.dailyForecast = action.payload.dailyForecast;
       state.airConditions = action.payload.airConditions;
-      if (!state.searchHistory.includes(newCity)) {
-        state.searchHistory.push(newCity); // Add new city to search history
+
+      if (!state.searchHistoryIds.includes(newCity)) {
+        state.searchHistoryIds.push(newCity);
+        state.searchHistoryData.push({
+          id: newCity,
+          city: state.city,
+          region: state.region,
+          temp: state.currentWeather.temperature,
+          icon: state.currentWeather.icon,
+        });
       }
     },
     deleteCity: (state, action) => {
-      state.searchHistory.filter((item) => item.id != action.id); // Action to delete a city
+      // Action to delete a city
+      state.searchHistoryIds.filter((item) => item == action.payload.id);
+      state.searchHistoryData.filter((item) => item.id == action.payload.id); // Action to delete a city
     },
   },
 });

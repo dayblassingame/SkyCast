@@ -18,7 +18,10 @@ export default function Search({ clickHandler }) {
 
   useEffect(() => {
     const debounce = setTimeout(() => {
-      if (search == "" || search.length < 3) return;
+      if (search == "" || search.length < 3) {
+        setAutoComplete([]);
+        return;
+      }
       searchApi(search, apiKey)
         .then((res) => setAutoComplete(res))
         .catch((err) => setError(true));

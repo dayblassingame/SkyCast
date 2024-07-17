@@ -8,10 +8,10 @@ export default function WeeklyForecast({ backgroundColor, data }) {
       className={styles.container}
       style={{ backgroundColor: backgroundColor }}
     >
-      <label>6-Day Forecast</label>
+      <label>{data.length}-Day Forecast</label>
       <ul>
         {data.map((item, index) => (
-          <WeeklyForecastItem data={item} index={index} />
+          <WeeklyForecastItem data={item} index={index} key={index} />
         ))}
       </ul>
     </div>

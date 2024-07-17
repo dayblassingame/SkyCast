@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CurrentWeather from "./components/currentWeather";
 import DailyForecast from "./components/dailyForecast";
 import AirConditions from "./components/airConditions";
@@ -21,9 +21,14 @@ export default function WeatherDashboard() {
   const weeklyForecast = useAppSelector(
     (state) => state.weather.weeklyForecast
   );
-
   const dailyForecast = useAppSelector((state) => state.weather.dailyForecast);
-  return (
+  const [error, setError] = useState(current.city == "");
+
+  useEffect(() => {
+    setError(current.city == "");
+  });
+
+  return !error ? (
     <div className={styles.container}>
       <div className={styles.left}>
         <CurrentWeather data={current} />
@@ -33,6 +38,10 @@ export default function WeatherDashboard() {
       <div className={styles.right}>
         <WeeklyForecast data={weeklyForecast} today={today} />
       </div>
+    </div>
+  ) : (
+    <div className={styles.error}>
+      <p>Search for a city</p>
     </div>
   );
 }

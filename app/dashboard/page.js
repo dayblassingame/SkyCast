@@ -7,6 +7,7 @@ import CityDashboard from "./cityDashboard";
 import { FaUmbrella } from "react-icons/fa";
 import { IoIosList, IoIosPartlySunny } from "react-icons/io";
 import StoreProvider from "../lib/storeProvider";
+import { useAppSelector } from "../lib/hooks";
 
 export default function Dashboard() {
   const [dash, setDash] = useState({
@@ -43,9 +44,15 @@ export default function Dashboard() {
           </div>
           <div className={styles.right}>
             <Search
-              clickHandler={() => setDash({ city: true, weather: false })}
+              clickHandler={
+                !city
+                  ? () => setDash({ city: true, weather: false })
+                  : () => {
+                      return;
+                    }
+              }
             />
-            {/* {city && <CityDashboard />} */}
+            {city && <CityDashboard setDash={setDash} />}
             {weather && <WeatherDashboard />}
           </div>
         </div>
