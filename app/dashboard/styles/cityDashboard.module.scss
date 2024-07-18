@@ -1,24 +1,26 @@
 @import "../../styles/base/typography";
 @import "../../styles/base/variables";
 
-.container{
-    display: flex;
-    justify-content: left;
+.container {
+  display: flex;
+  justify-content: space-between;
 
-    .left{
-        width: 63%;
+  .left {
+    min-width: 270px;
+    max-width: 600px;
+    flex-grow: 0.8;
+  }
 
-        form{
-            display: flex;
-            flex-direction: column;
-            overflow: scroll;
-            scrollbar-width: 0px;
-        }
-    }
+  .right {
+    flex-grow: 0.2;
+    min-width: 300px;
+  }
+}
 
-    .right{
-        display: flex;
-        flex-direction: column;
-        width: 35%;
-    }
+.error {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $grayishwhite;
 }

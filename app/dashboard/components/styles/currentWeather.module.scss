@@ -1,54 +1,59 @@
-@import '../../../styles/base/typography';
-@import '../../../styles/base/variables';
+@import "../../../styles/base/typography";
+@import "../../../styles/base/variables";
 
-.container{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    padding: $padding-extrasmall $padding-large;
-    color: white;
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: $padding-extrasmall $padding-large;
+  color: white;
 
-    .left{
-        width: 65%;
+  .left {
+    width: 65%;
 
-        h2{
-            font-size: 3vw;
-            line-height: 38px;
+    h2 {
+      font-size: 3vw;
+      line-height: 38px;
 
-            @media screen and (min-width: 900px) {
-                font-size: 28px;
-            }
-        }
-
-        p{
-            font-size: 1.6vw;
-            line-height: 28px;
-            color: $lightgrey;
-            margin-bottom: $margin-medium;
-
-            @media screen and (min-width: 900px) {
-                font-size: 16px;
-            }
-        }
-
-        h1{
-            display: inline-block;
-            letter-spacing: 1.5px;
-            font-size: 4.5vw;
-
-            @media screen and (min-width: 900px) {
-                font-size: 44px;
-            }
-        }
-
-        .icon{
-            display: inline-block;
-            margin-bottom: 18px;
-            font-size: 13px;
-        }
+      @media screen and (min-width: 900px) {
+        font-size: 28px;
+      }
     }
 
-    .right{
-        width: 35%;
+    p {
+      font-size: 1.6vw;
+      line-height: 28px;
+      color: $lightgrey;
+      margin-bottom: $margin-medium;
+
+      @media screen and (min-width: 900px) {
+        font-size: 16px;
+      }
     }
+
+    h1 {
+      display: inline-block;
+      letter-spacing: 1.5px;
+      font-size: 4.5vw;
+
+      @media screen and (min-width: 900px) {
+        font-size: 44px;
+      }
+    }
+
+    .icon {
+      display: inline-block;
+      margin-bottom: 18px;
+      font-size: 13px;
+    }
+  }
+
+  .right {
+    width: 35%;
+
+    img {
+      height: 100px;
+      width: 100px;
+    }
+  }
 }

@@ -2,14 +2,18 @@ import React from "react";
 import WeeklyForecastItem from "./weeklyForecastItem";
 import styles from "./styles/weeklyForecast.module.scss";
 
-export default function WeeklyForecast({backgroundColor}){
-
-    return(
-        <div className={styles.container} style={{backgroundColor: backgroundColor}}>
-            <label>7-Day Forecast</label>
-            <ul>
-                <WeeklyForecastItem/>
-            </ul>
-        </div>
-    )
+export default function WeeklyForecast({ backgroundColor, data }) {
+  return (
+    <div
+      className={styles.container}
+      style={{ backgroundColor: backgroundColor }}
+    >
+      <label>{data.length}-Day Forecast</label>
+      <ul>
+        {data.map((item, index) => (
+          <WeeklyForecastItem data={item} index={index} key={index} />
+        ))}
+      </ul>
+    </div>
+  );
 }

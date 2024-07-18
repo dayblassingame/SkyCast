@@ -1,22 +1,33 @@
-@import '../../../styles/base/typography';
-@import '../../../styles/base/variables';
+@import "../../../styles/base/typography";
+@import "../../../styles/base/variables";
 
-.container{
+.container {
+  width: 100%;
+  padding: $padding-medium $padding-medium;
+  background-color: $overlay;
+  border-radius: 20px;
+  color: $lightgrey;
+
+  label {
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  ul {
+    display: flex;
     width: 100%;
-    padding: $padding-medium $padding-medium;
-    background-color: $overlay;
-    border-radius: 20px;
-    color: $lightgrey;
+    justify-content: space-evenly;
+    overflow-x: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 
-    label{
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        font-size: 14px;
-        line-height: 24px;
+    &::-webkit-scrollbar {
+      display: none;
     }
 
-    ul{
-        list-style: none;
-        padding: $padding-extrasmall $padding-extrasmall;
-    }
+    list-style: none;
+    padding: $padding-extrasmall $padding-extrasmall;
+  }
 }

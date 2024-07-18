@@ -1,29 +1,59 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { searchApi } from "./api/searchAPI";
 import styles from "./styles/search.module.scss";
+import AutoComplete from "./components/autoComplete";
+import { useAppDispatch } from "../lib/hooks";
+import { fetchCityWeather } from "./api/fetchCityWeather";
+import { setWeather } from "../lib/weatherSlice";
 
-export default function Search({clickHandler}){
-    const searchForm = useRef(null);
+const apiKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
 
-    useEffect(()=>{
-        searchForm.current.addEventListener("onKeyPress", keyPress);
-    },[])
+export default function Search({ clickHandler }) {
+  const [search, setSearch] = useState("");
+  const [autoComplete, setAutoComplete] = useState([]);
+  const [error, setError] = useState(false);
+  const dispatch = useAppDispatch();
 
-    const keyPress=(event)=>{
-        if(event.key==="enter"){
-            searchForm.submit();
-        }
-    }
+  useEffect(() => {
+    const debounce = setTimeout(() => {
+      if (search == "" || search.length < 3) {
+        setAutoComplete([]);
+        return;
+      }
+      searchApi(search, apiKey)
+        .then((res) => setAutoComplete(res))
+        .catch((err) => setError(true));
+    }, [500]);
 
-    const handleSubmit=(e)=>{
-    }
+    return () => clearTimeout(debounce);
+  }, [search]);
 
-    return(
-        <div className={styles.container}>
-            <form ref={searchForm} onSubmit={handleSubmit}>
-                <input id="searchInput" name="search" placeholder="Search for cities" onClick={clickHandler}/>
-            </form>
-        </div>
-    )
-        }
+  async function setCurrentCity(e) {
+    fetchCityWeather(e.target.id, apiKey)
+      .then((res) => dispatch(setWeather(res)))
+      .catch((err) => setError(true));
+    setSearch("");
+    setAutoComplete([]);
+  }
+
+  return (
+    <div className={styles.container}>
+      <input
+        id="searchInput"
+        name="search"
+        placeholder="Search for cities"
+        onClick={clickHandler}
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        autoComplete="off"
+      />
+      <AutoComplete
+        list={autoComplete}
+        setCity={setCurrentCity}
+        closeAutocomplete={() => setAutoComplete([])}
+      />
+    </div>
+  );
+}
