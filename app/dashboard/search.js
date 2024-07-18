@@ -22,6 +22,7 @@ export default function Search({ clickHandler }) {
         setAutoComplete([]);
         return;
       }
+
       searchApi(search, apiKey)
         .then((res) => setAutoComplete(res))
         .catch((err) => setError(true));
