@@ -8,7 +8,7 @@ import { useAppDispatch } from "../lib/hooks";
 import { fetchCityWeather } from "./api/fetchCityWeather";
 import { setWeather } from "../lib/weatherSlice";
 
-const apiKey = process.env.WEATHER_API_KEY;
+const apiKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
 
 export default function Search({ clickHandler }) {
   const [search, setSearch] = useState("");
@@ -22,7 +22,6 @@ export default function Search({ clickHandler }) {
         setAutoComplete([]);
         return;
       }
-
       searchApi(search, apiKey)
         .then((res) => setAutoComplete(res))
         .catch((err) => setError(true));
