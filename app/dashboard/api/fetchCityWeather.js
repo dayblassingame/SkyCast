@@ -1,7 +1,3 @@
-import axios from "axios";
-import WeeklyForecast from "../components/weeklyForecast";
-import { current } from "@reduxjs/toolkit";
-
 //gets current city weather and 5 day forecast from WeatherAPI
 export async function fetchCityWeather(cityId, apiKey) {
   const endpoint = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=id:${cityId}&days=6`;
