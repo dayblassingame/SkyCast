@@ -1,4 +1,3 @@
-import Image from "next/image";
 import react from "react";
 import styles from "./styles/currentWeather.module.scss";
 import { PiCircleBold } from "react-icons/pi";
@@ -12,7 +11,7 @@ export default function CurrentWeather({ data }) {
     <div className={styles.container}>
       <div className={styles.left}>
         <h2>{data.city}</h2>
-        <p>Precipitation Amount: {data.currentWeather.precipitationAmount}"</p>
+        <p>Precipitation Amount: {data.currentWeather.precipitationAmount}in</p>
         <h1>{data.currentWeather.temperature}</h1>
         <PiCircleBold className={styles.icon} />
       </div>
