@@ -7,13 +7,13 @@ export async function fetchCityWeather(cityId, apiKey) {
   const endpoint = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=id:${cityId}&days=6`;
   let weatherData = {};
   weatherData.id = cityId;
-  await axios
-    .get(endpoint)
+
+  await fetch(endpoint)
+    .then((response) => response.json())
     .then(
-      (response) =>
-        (weatherData = { ...weatherData, ...formatWeatherData(response.data) })
+      (data) => (weatherData = { ...weatherData, ...formatWeatherData(data) })
     )
-    .catch((err) => (weatherData = err));
+    .catch((err) => console.log(err));
 
   return weatherData;
 }
