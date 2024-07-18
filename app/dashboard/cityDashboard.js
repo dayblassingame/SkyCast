@@ -9,7 +9,7 @@ import { fetchCityWeather } from "./api/fetchCityWeather";
 import { useAppDispatch, useAppSelector } from "../lib/hooks";
 import { setWeather } from "../lib/weatherSlice";
 
-const apiKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
+const apiKey = process.env.WEATHER_API_KEY;
 
 export default function CityDashboard({ setDash }) {
   const dispatch = useAppDispatch();
