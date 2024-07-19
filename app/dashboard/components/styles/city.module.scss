@@ -2,7 +2,7 @@
 @import "../../../styles/base/variables";
 
 .container {
-  width: 100%;
+  width: 90%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,6 +11,7 @@
   border-radius: 20px;
   border: none;
   color: $grayishwhite;
+  margin-right: $margin-extrasmall;
   margin-bottom: $margin-extrasmall;
 
   &:active,

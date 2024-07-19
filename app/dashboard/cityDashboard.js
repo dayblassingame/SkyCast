@@ -7,7 +7,8 @@ import WeeklyForecast from "./components/weeklyForecast";
 import styles from "./styles/cityDashboard.module.scss";
 import { fetchCityWeather } from "./api/fetchCityWeather";
 import { useAppDispatch, useAppSelector } from "../lib/hooks";
-import { setWeather } from "../lib/weatherSlice";
+import { deleteCity, setWeather } from "../lib/weatherSlice";
+import { IoTrashOutline } from "react-icons/io5";
 
 const apiKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
 
@@ -18,6 +19,20 @@ export default function CityDashboard({ setDash }) {
   const [error, setError] = useState(
     useAppSelector((state) => state.weather.city == "")
   );
+
+  const current = {
+    city: useAppSelector((state) => state.weather.city),
+    region: useAppSelector((state) => state.weather.region),
+    currentWeather: useAppSelector((state) => state.weather.currentWeather),
+  };
+
+  const weeklyForecast = useAppSelector(
+    (state) => state.weather.weeklyForecast
+  ).slice(0, 2);
+
+  const dailyForecast = useAppSelector(
+    (state) => state.weather.dailyForecast
+  ).slice(0, 4);
 
   useEffect(() => {
     setEmpty(cityList.length == 0);
@@ -34,30 +49,28 @@ export default function CityDashboard({ setDash }) {
     setDash({ city: false, weather: true });
   };
 
-  const current = {
-    city: useAppSelector((state) => state.weather.city),
-    region: useAppSelector((state) => state.weather.region),
-    currentWeather: useAppSelector((state) => state.weather.currentWeather),
+  const removeCity = (e) => {
+    dispatch(deleteCity({ id: e }));
   };
-
-  const weeklyForecast = useAppSelector(
-    (state) => state.weather.weeklyForecast
-  ).slice(0, 2);
-
-  const dailyForecast = useAppSelector(
-    (state) => state.weather.dailyForecast
-  ).slice(0, 4);
 
   return !empty ? (
     <div id="cityDashboard" className={styles.container}>
       <ul className={styles.left}>
         {cityList.map((cityData) => (
-          <City
-            key={cityData.id}
-            data={cityData}
-            setCity={setCurrentCity}
-            doubleClick={cityDoubleClick}
-          />
+          <div className={styles.cityDiv}>
+            <City
+              key={cityData.id}
+              data={cityData}
+              setCity={setCurrentCity}
+              doubleClick={cityDoubleClick}
+            />
+            <button
+              className={styles.delete}
+              onClick={() => removeCity(cityData.id)}
+            >
+              <IoTrashOutline className={styles.icon} />
+            </button>
+          </div>
         ))}
       </ul>
 

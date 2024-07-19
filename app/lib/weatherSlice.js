@@ -63,8 +63,17 @@ export const weatherSlice = createSlice({
         };
       }
     },
+    deleteCity: (state, action) => {
+      state.searchHistoryIds = state.searchHistoryIds.filter(
+        (city) => city != action.payload.id
+      );
+      state.searchHistoryData = state.searchHistoryData.filter(
+        (city) => city.id != action.payload.id
+      );
+      saveCities(state.searchHistoryData);
+    },
   },
 });
 
-export const { setWeather } = weatherSlice.actions;
+export const { setWeather, deleteCity } = weatherSlice.actions;
 export default weatherSlice.reducer;
