@@ -43,7 +43,7 @@ export default function Search({ clickHandler }) {
       <input
         id="searchInput"
         name="search"
-        placeholder="Search for cities"
+        placeholder="Search cities by name or zipcode"
         onClick={clickHandler}
         value={search}
         onChange={(e) => setSearch(e.target.value)}

@@ -4,11 +4,20 @@ import styles from "./styles/city.module.scss";
 
 export default function City({ data, setCity, doubleClick }) {
   const iconSrc = "https:" + data.icon;
+
+  const handleClick = () => {
+    setCity(data.id);
+  };
+
+  const handleDoubleClick = () => {
+    doubleClick(data.id);
+  };
+
   return (
     <button
       id={data.id}
-      onDoubleClick={doubleClick}
-      onClick={setCity}
+      onClick={handleClick}
+      onDoubleClick={handleDoubleClick}
       className={styles.container}
     >
       <div className={styles.left}>

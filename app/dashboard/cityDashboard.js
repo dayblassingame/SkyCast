@@ -21,9 +21,9 @@ export default function CityDashboard({ setDash }) {
   }, [cityList.length]);
 
   async function setCurrentCity(e) {
-    fetchCityWeather(e.target.id, apiKey)
+    fetchCityWeather(e, apiKey)
       .then((res) => dispatch(setWeather(res)))
-      .catch((err) => setError(true));
+      .catch((err) => console.log("error"));
   }
 
   const cityDoubleClick = (e) => {
