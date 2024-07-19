@@ -16,6 +16,6 @@ export const saveCities = (cityData) => {
     const savedCities = JSON.stringify(cityData);
     localStorage.setItem("cities", savedCities);
   } catch {
-    console.log(error);
+    console.log("local storage disabled");
   }
 };

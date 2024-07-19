@@ -49,11 +49,13 @@ export default function Search({ clickHandler }) {
         onChange={(e) => setSearch(e.target.value)}
         autoComplete="off"
       />
-      <AutoComplete
-        list={autoComplete}
-        setCity={setCurrentCity}
-        closeAutocomplete={() => setAutoComplete([])}
-      />
+      {autoComplete.length > 0 && (
+        <AutoComplete
+          list={autoComplete}
+          setCity={setCurrentCity}
+          closeAutocomplete={() => setAutoComplete([])}
+        />
+      )}
     </div>
   );
 }

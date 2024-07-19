@@ -9,7 +9,7 @@ export async function fetchCityWeather(cityId, apiKey) {
     .then(
       (data) => (weatherData = { ...weatherData, ...formatWeatherData(data) })
     )
-    .catch((err) => console.log(err));
+    .catch((err) => (weatherData = {}));
 
   return weatherData;
 }

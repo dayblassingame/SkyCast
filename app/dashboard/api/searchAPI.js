@@ -7,7 +7,7 @@ export async function searchApi(query, apiKey) {
   await fetch(endpoint)
     .then((response) => response.json())
     .then((data) => (resData = data))
-    .catch((error) => console.log(error));
+    .catch((error) => (resData = []));
 
   return resData;
 }

@@ -14,16 +14,17 @@ const apiKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
 export default function CityDashboard({ setDash }) {
   const dispatch = useAppDispatch();
   const cityList = useAppSelector((state) => state.weather.searchHistoryData);
-  const [error, setError] = useState(cityList.length == 0);
+  const [empty, setEmpty] = useState(cityList.length == 0);
+  const [error, setError] = useState(true);
 
   useEffect(() => {
-    setError(cityList.length == 0);
+    setEmpty(cityList.length == 0);
   }, [cityList.length]);
 
   async function setCurrentCity(e) {
     fetchCityWeather(e, apiKey)
-      .then((res) => dispatch(setWeather(res)))
-      .catch((err) => console.log("error"));
+      .then((res) => dispatch(setWeather(res), setError(false)))
+      .catch((err) => setError(true));
   }
 
   const cityDoubleClick = (e) => {
@@ -45,7 +46,7 @@ export default function CityDashboard({ setDash }) {
     (state) => state.weather.dailyForecast
   ).slice(0, 4);
 
-  return !error ? (
+  return !empty ? (
     <div id="cityDashboard" className={styles.container}>
       <ul className={styles.left}>
         {cityList.map((cityData) => (
@@ -57,11 +58,17 @@ export default function CityDashboard({ setDash }) {
           />
         ))}
       </ul>
-      <div className={styles.right}>
-        <CurrentWeather data={current} />
-        <DailyForecast backgroundColor={"transparent"} data={dailyForecast} />
-        <WeeklyForecast backgroundColor={"transparent"} data={weeklyForecast} />
-      </div>
+
+      {!error && (
+        <div className={styles.right}>
+          <CurrentWeather data={current} />
+          <DailyForecast backgroundColor={"transparent"} data={dailyForecast} />
+          <WeeklyForecast
+            backgroundColor={"transparent"}
+            data={weeklyForecast}
+          />
+        </div>
+      )}
     </div>
   ) : (
     <div className={styles.error}>
