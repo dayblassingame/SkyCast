@@ -12,51 +12,54 @@ import { IoTrashOutline } from "react-icons/io5";
 
 const apiKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
 
+//city dashboard displays list of cities and partial forecast
 export default function CityDashboard({ setDash }) {
   const dispatch = useAppDispatch();
-  const cityList = useAppSelector((state) => state.weather.searchHistoryData);
-  const [empty, setEmpty] = useState(cityList.length == 0);
+  const cityList = useAppSelector((state) => state.weather.searchHistoryData); //list of previously searched cities
+  const [empty, setEmpty] = useState(cityList.length == 0); //checks if search history list is empty
   const [error, setError] = useState(
-    useAppSelector((state) => state.weather.city == "")
+    useAppSelector((state) => state.weather.city == "") //checks if current city is set
   );
 
   const current = {
     city: useAppSelector((state) => state.weather.city),
     region: useAppSelector((state) => state.weather.region),
     currentWeather: useAppSelector((state) => state.weather.currentWeather),
-  };
+  }; //get city current weather information
 
   const weeklyForecast = useAppSelector(
     (state) => state.weather.weeklyForecast
-  ).slice(0, 2);
+  ).slice(0, 2); //gets 2 day weekly forecast
 
   const dailyForecast = useAppSelector(
     (state) => state.weather.dailyForecast
-  ).slice(0, 4);
+  ).slice(0, 4); //gets partial daily forecast
 
   useEffect(() => {
     setEmpty(cityList.length == 0);
   }, [cityList.length]);
 
   async function setCurrentCity(e) {
+    //fetches weather information for city using id
     fetchCityWeather(e, apiKey)
-      .then((res) => dispatch(setWeather(res), setError(false)))
+      .then((res) => dispatch(setWeather(res), setError(false))) //sets current city in redux store
       .catch((err) => setError(true));
   }
 
   const cityDoubleClick = (e) => {
     setCurrentCity(e);
-    setDash({ city: false, weather: true });
+    setDash({ city: false, weather: true }); //displays current city in weather dashboard
   };
 
   const removeCity = (e) => {
+    //delete cities from search history
     dispatch(deleteCity({ id: e }));
   };
 
   return !empty ? (
     <div id="cityDashboard" className={styles.container}>
       <ul className={styles.left}>
-        {cityList.map((cityData) => (
+        {cityList.map((cityData, index) => (
           <div className={styles.cityDiv}>
             <City
               key={cityData.id}
@@ -66,6 +69,7 @@ export default function CityDashboard({ setDash }) {
             />
             <button
               className={styles.delete}
+              key={index}
               onClick={() => removeCity(cityData.id)}
             >
               <IoTrashOutline className={styles.icon} />
@@ -86,6 +90,7 @@ export default function CityDashboard({ setDash }) {
       )}
     </div>
   ) : (
+    //if no city is selected display message to search for city
     <div className={styles.error}>
       <p>Search for a city</p>
     </div>

@@ -9,18 +9,19 @@ import styles from "./styles/weatherDashboard.module.scss";
 
 import { useAppSelector } from "../lib/hooks";
 
+//displays full weather information about current city set
 export default function WeatherDashboard() {
   const current = {
+    //gets current weather conditions from store
     city: useAppSelector((state) => state.weather.city),
     region: useAppSelector((state) => state.weather.region),
     currentWeather: useAppSelector((state) => state.weather.currentWeather),
   };
 
-  const airConditions = useAppSelector((state) => state.weather.airConditions);
-  const today = useAppSelector((state) => state.weather.date);
+  const airConditions = useAppSelector((state) => state.weather.airConditions); //get air conditions from store
   const weeklyForecast = useAppSelector(
     (state) => state.weather.weeklyForecast
-  );
+  ); //get weekly forecast from store
   const dailyForecast = useAppSelector((state) => state.weather.dailyForecast);
   const [error, setError] = useState(current.city == "");
 
@@ -36,7 +37,7 @@ export default function WeatherDashboard() {
         <AirConditions data={airConditions} />
       </div>
       <div className={styles.right}>
-        <WeeklyForecast data={weeklyForecast} today={today} />
+        <WeeklyForecast data={weeklyForecast} />
       </div>
     </div>
   ) : (

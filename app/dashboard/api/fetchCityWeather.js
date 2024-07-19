@@ -53,7 +53,7 @@ function formatWeatherData(response) {
   return data;
 }
 
-//gets 24 hour forecast in 4 hour incremenets
+//gets 24 hour forecast in 4 hour incremenets after current time
 function getHourlyForecast(forecast, localEpoch) {
   const hourArray = forecast[0].hour;
 

@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { loadCities, saveCities } from "./localStorage";
 
-const storedData = loadCities();
-const storedIds = storedData.map((item) => item.id);
-
+const storedData = loadCities(); //get data from local storage
+const storedIds = storedData.map((item) => item.id); //get city ids from local storage
+//holds and manipulates weather data
 export const weatherSlice = createSlice({
   name: "weather",
   initialState: {

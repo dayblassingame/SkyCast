@@ -9,8 +9,10 @@ import { IoIosList, IoIosPartlySunny } from "react-icons/io";
 import StoreProvider from "../lib/storeProvider";
 import { useAppSelector } from "../lib/hooks";
 
+//dashboard displays nav, citydash/weather dash, and search
 export default function Dashboard() {
   const [dash, setDash] = useState({
+    //controls whether city or weather dash are displayed
     city: false,
     weather: true,
   });

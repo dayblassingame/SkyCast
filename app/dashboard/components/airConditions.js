@@ -7,6 +7,7 @@ import styles from "./styles/airConditions.module.scss";
 import buttonStyles from "../../styles/components/button.module.scss";
 import { PiCircleBold } from "react-icons/pi";
 
+//display current air conditions in current city selected
 export default function AirConditions({ data }) {
   return (
     <div className={styles.container}>
