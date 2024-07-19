@@ -12,7 +12,9 @@ export default function AirConditions({ data }) {
     <div className={styles.container}>
       <div className={styles.containerHead}>
         <label>Air Conditions</label>
-        <button className={buttonStyles.button}>See More</button>
+        <button className={buttonStyles.button} disabled={true}>
+          See More
+        </button>
       </div>
       <div className={styles.main}>
         <div className={styles.section}>

@@ -1,9 +1,14 @@
-@import '../base/variables.scss';
+@import "../base/variables.scss";
 
-.button{
-    text-decoration: none;
-    color: white;
-    border: 1px solid $blue;
-    border-radius: 20px;
-    background-color: $blue;
+.button {
+  text-decoration: none;
+  color: white;
+  border: 1px solid $blue;
+  border-radius: 20px;
+  background-color: $blue;
+
+  &:disabled {
+    background-color: $lightgrey;
+    border: none;
+  }
 }

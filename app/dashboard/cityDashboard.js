@@ -15,7 +15,9 @@ export default function CityDashboard({ setDash }) {
   const dispatch = useAppDispatch();
   const cityList = useAppSelector((state) => state.weather.searchHistoryData);
   const [empty, setEmpty] = useState(cityList.length == 0);
-  const [error, setError] = useState(true);
+  const [error, setError] = useState(
+    useAppSelector((state) => state.weather.city == "")
+  );
 
   useEffect(() => {
     setEmpty(cityList.length == 0);
