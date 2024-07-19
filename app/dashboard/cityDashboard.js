@@ -64,7 +64,7 @@ export default function CityDashboard({ setDash }) {
     <div id="cityDashboard" className={styles.container}>
       <ul className={styles.left}>
         {cityList.map((cityData, index) => (
-          <div className={styles.cityDiv}>
+          <div className={styles.cityDiv} key={index}>
             <City
               key={cityData.id}
               data={cityData}
