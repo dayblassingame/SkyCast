@@ -1,0 +1,33 @@
+@import "../../../styles/base/typography";
+@import "../../../styles/base/variables";
+
+.container {
+  width: 100%;
+  padding: $padding-medium $padding-medium;
+  background-color: $overlay;
+  border-radius: 20px;
+  color: $lightgrey;
+
+  label {
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  ul {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    overflow-x: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    list-style: none;
+    padding: $padding-extrasmall $padding-extrasmall;
+  }
+}

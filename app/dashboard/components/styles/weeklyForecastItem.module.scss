@@ -1,0 +1,44 @@
+@import "../../../styles/base/typography";
+@import "../../../styles/base/variables";
+
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  padding: $padding-medium $padding-extrasmall;
+  border-bottom: 0.5px solid $lightgrey;
+
+  .day {
+    text-transform: capitalize;
+    width: 50px;
+  }
+
+  p {
+    font-size: 13px;
+  }
+
+  h4 {
+    color: $grayishwhite;
+    font-size: 13px;
+  }
+
+  .conditionSpan {
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: $grayishwhite;
+    text-transform: capitalize;
+
+    img {
+      width: 30px;
+      height: 30px;
+      margin-right: $margin-extrasmall;
+    }
+  }
+
+  .tempSpan {
+    display: flex;
+  }
+}

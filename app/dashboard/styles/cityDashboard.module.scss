@@ -1,0 +1,26 @@
+@import "../../styles/base/typography";
+@import "../../styles/base/variables";
+
+.container {
+  display: flex;
+  justify-content: space-between;
+
+  .left {
+    min-width: 270px;
+    max-width: 600px;
+    flex-grow: 0.8;
+  }
+
+  .right {
+    flex-grow: 0.2;
+    min-width: 300px;
+  }
+}
+
+.error {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $grayishwhite;
+}

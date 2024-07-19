@@ -1,17 +1,62 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
+import Search from "./search";
+import styles from "./styles/dashboard.module.scss";
+import WeatherDashboard from "./weatherDashboard";
+import CityDashboard from "./cityDashboard";
 import { FaUmbrella } from "react-icons/fa";
-import styles from '../styles/components/dashboard.module.scss';
-import icon from '../styles/components/icon.module.scss';
+import { IoIosList, IoIosPartlySunny } from "react-icons/io";
+import StoreProvider from "../lib/storeProvider";
+import { useAppSelector } from "../lib/hooks";
 
-export default function comingSoon(){
-    
-    return(
-        <main>
-            <div  className={styles.container}>
-                <div className={styles.content}>
-                    <h1> Coming Soon </h1>
-                </div>
-            </div>
-        </main>
-    )
+export default function Dashboard() {
+  const [dash, setDash] = useState({
+    city: false,
+    weather: true,
+  });
+  const { city, weather } = dash;
+
+  return (
+    <StoreProvider>
+      <main>
+        <div className={styles.container}>
+          <div className={styles.left}>
+            <button
+              className={styles.logoIcon}
+              onClick={() => setDash({ city: false, weather: true })}
+            >
+              <FaUmbrella />
+            </button>
+            <button
+              onClick={() => setDash({ city: false, weather: true })}
+              className={weather ? styles.selected : ""}
+            >
+              <IoIosPartlySunny className={styles.icon} />
+              Weather
+            </button>
+            <button
+              onClick={() => setDash({ city: true, weather: false })}
+              className={city ? styles.selected : ""}
+            >
+              <IoIosList className={styles.icon} />
+              Cities
+            </button>
+          </div>
+          <div className={styles.right}>
+            <Search
+              clickHandler={
+                !city
+                  ? () => setDash({ city: true, weather: false })
+                  : () => {
+                      return;
+                    }
+              }
+            />
+            {city && <CityDashboard setDash={setDash} />}
+            {weather && <WeatherDashboard />}
+          </div>
+        </div>
+      </main>
+    </StoreProvider>
+  );
 }
