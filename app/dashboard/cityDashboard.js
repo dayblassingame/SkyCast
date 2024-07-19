@@ -39,6 +39,10 @@ export default function CityDashboard({ setDash }) {
     setEmpty(cityList.length == 0);
   }, [cityList.length]);
 
+  useEffect(() => {
+    setError(current.city == "");
+  }, [current.city]);
+
   async function setCurrentCity(e) {
     //fetches weather information for city using id
     fetchCityWeather(e, apiKey)
