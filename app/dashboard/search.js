@@ -43,17 +43,19 @@ export default function Search({ clickHandler }) {
       <input
         id="searchInput"
         name="search"
-        placeholder="Search for cities"
+        placeholder="Search cities by name or zipcode"
         onClick={clickHandler}
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         autoComplete="off"
       />
-      <AutoComplete
-        list={autoComplete}
-        setCity={setCurrentCity}
-        closeAutocomplete={() => setAutoComplete([])}
-      />
+      {autoComplete.length > 0 && (
+        <AutoComplete
+          list={autoComplete}
+          setCity={setCurrentCity}
+          closeAutocomplete={() => setAutoComplete([])}
+        />
+      )}
     </div>
   );
 }

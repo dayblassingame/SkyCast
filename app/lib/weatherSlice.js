@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Staatliches } from "next/font/google";
+import { loadCities, saveCities } from "./localStorage";
+
+const storedData = loadCities();
+const storedIds = storedData.map((item) => item.id);
 
 export const weatherSlice = createSlice({
   name: "weather",
@@ -15,8 +18,8 @@ export const weatherSlice = createSlice({
     },
     weeklyForecast: [],
     dailyForecast: [],
-    searchHistoryIds: [],
-    searchHistoryData: [],
+    searchHistoryIds: [...storedIds],
+    searchHistoryData: [...storedData],
     airConditions: {
       realFeel: "",
       windSpeed: "",
@@ -25,9 +28,9 @@ export const weatherSlice = createSlice({
     },
   },
   reducers: {
-    setWeather: (state = initialState, action) => {
+    setWeather: (state, action) => {
       const newCity = action.payload.id;
-      if (newCity == "") return;
+      if (newCity == "" || state.id == newCity) return;
       state.id = newCity;
       state.city = action.payload.city;
       state.region = action.payload.region;
@@ -45,6 +48,19 @@ export const weatherSlice = createSlice({
           temp: state.currentWeather.temperature,
           icon: state.currentWeather.icon,
         });
+        saveCities(state.searchHistoryData);
+      } else {
+        const index = state.searchHistoryIds.findIndex(
+          (item) => item == newCity
+        );
+        state.searchHistoryData[index] = {
+          ...state.searchHistoryData[index],
+          temp: state.currentWeather.temperature,
+        };
+        state.searchHistoryData[index] = {
+          ...state.searchHistoryData[index],
+          icon: state.currentWeather.icon,
+        };
       }
     },
     deleteCity: (state, action) => {
