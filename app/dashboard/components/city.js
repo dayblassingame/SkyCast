@@ -3,13 +3,15 @@ import { PiCircleBold } from "react-icons/pi";
 import styles from "./styles/city.module.scss";
 
 export default function City({ data, setCity, doubleClick }) {
-  const iconSrc = "https:" + data.icon;
+  const iconSrc = "https:" + data.icon; //converts relative url to full url
 
   const handleClick = () => {
-    setCity(data.id);
+    //sets current city on city click
+    setCity(data.id); //data.id: id of city to set
   };
 
   const handleDoubleClick = () => {
+    //set current city and shows full weather dashboard on city double click
     doubleClick(data.id);
   };
 

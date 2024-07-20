@@ -3,6 +3,7 @@ import DailyForecastItem from "./dailyForecastItem";
 import styles from "./styles/dailyForecast.module.scss";
 
 export default function DailyForecast({ backgroundColor, data }) {
+  //data: hourly forecast info from store
   return (
     <div
       className={styles.container}

@@ -5,7 +5,7 @@ import { PiCircleBold } from "react-icons/pi";
 export default function CurrentWeather({ data }) {
   let absoluteIconPath = "";
   if (data.currentWeather.icon != "")
-    absoluteIconPath = "https:" + data.currentWeather.icon;
+    absoluteIconPath = "https:" + data.currentWeather.icon; //coverts relative path to full icon url path
 
   return (
     <div className={styles.container}>

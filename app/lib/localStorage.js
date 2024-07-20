@@ -1,3 +1,4 @@
+//gets cities from local storage
 export const loadCities = () => {
   try {
     const storedCities = localStorage.getItem("cities");
@@ -10,7 +11,7 @@ export const loadCities = () => {
   }
 };
 
-// localStorage.js
+//add search history to local storage
 export const saveCities = (cityData) => {
   try {
     const savedCities = JSON.stringify(cityData);
