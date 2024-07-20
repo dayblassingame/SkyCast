@@ -11,7 +11,7 @@ export default function DailyForecastItem({ data }) {
   return (
     <li
       className={styles.container}
-      title={`forecast at ${time.hour} ${time.suffix}`}
+      title={`Forecast at ${time.hour} ${time.suffix}`}
     >
       <p aria-label="time">
         {time.hour}:00 {time.suffix}

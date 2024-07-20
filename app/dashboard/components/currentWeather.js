@@ -10,11 +10,15 @@ export default function CurrentWeather({ data }) {
   return (
     <section role="section" className={styles.container}>
       <div className={styles.left}>
-        <h2 aria-label={data.city}>{data.city}</h2>
+        <h2 title={data.city} aria-label={data.city}>
+          {data.city}
+        </h2>
         <p aria-label="precipitation amount">
           Precipitation Amount: {data.currentWeather.precipitationAmount} in
         </p>
-        <h1 aria-label="temperature">{data.currentWeather.temperature}</h1>
+        <h1 title="temperature" aria-label="temperature">
+          {data.currentWeather.temperature}
+        </h1>
         <PiCircleBold
           className={styles.icon}
           alt="degrees"
