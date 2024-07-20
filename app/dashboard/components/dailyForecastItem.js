@@ -9,18 +9,23 @@ export default function DailyForecastItem({ data }) {
   const iconSrc = "https:" + data.icon; //convert icon path to full url
 
   return (
-    <li className={styles.container}>
-      <p>
+    <li
+      className={styles.container}
+      title={`forecast at ${time.hour} ${time.suffix}`}
+    >
+      <p aria-label="time">
         {time.hour}:00 {time.suffix}
       </p>
       <img
-        alt=""
+        title={data.iconText}
+        alt={data.iconText}
         className={styles.condition}
         name={data.iconText}
         src={iconSrc}
       />
-      <span className={styles.temp}>
-        <h3>{data.temp} </h3> <PiCircleBold className={styles.icon} />{" "}
+      <span aria-label="temperture" className={styles.temp}>
+        <h3>{data.temp} </h3>{" "}
+        <PiCircleBold className={styles.icon} aria-label="degrees" />{" "}
       </span>
     </li>
   );

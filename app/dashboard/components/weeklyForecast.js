@@ -5,7 +5,8 @@ import styles from "./styles/weeklyForecast.module.scss";
 export default function WeeklyForecast({ backgroundColor, data }) {
   //data: weekly forecast from store
   return (
-    <div
+    <section
+      aria-label="weekly forecast"
       className={styles.container}
       style={{ backgroundColor: backgroundColor }}
     >
@@ -15,6 +16,6 @@ export default function WeeklyForecast({ backgroundColor, data }) {
           <WeeklyForecastItem data={item} index={index} key={index} />
         ))}
       </ul>
-    </div>
+    </section>
   );
 }

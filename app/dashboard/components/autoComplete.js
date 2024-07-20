@@ -13,6 +13,8 @@ export default function AutoComplete({ list, setCity }) {
           key={index}
           id={item.id}
           onClick={setCity}
+          title={`${item.name}, ${item.region}, ${item.country}`}
+          role="button"
         >
           {item.name}, {item.region}, {item.country}
         </button>

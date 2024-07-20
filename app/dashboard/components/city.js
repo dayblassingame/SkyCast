@@ -21,6 +21,9 @@ export default function City({ data, setCity, doubleClick }) {
       onClick={handleClick}
       onDoubleClick={handleDoubleClick}
       className={styles.container}
+      role="button"
+      aria-label={`set ${data.city}, ${data.region} as current city`}
+      title={`${data.city}, ${data.region}`}
     >
       <div className={styles.left}>
         <h3>
@@ -28,9 +31,13 @@ export default function City({ data, setCity, doubleClick }) {
         </h3>
       </div>
       <div className={styles.right}>
-        <img src={iconSrc} />
-        <h2>{data.temp}</h2>
-        <PiCircleBold className={styles.icon} />
+        <img alt="weather conditions" src={iconSrc} />
+        <h2 aria-label="temperature">{data.temp}</h2>
+        <PiCircleBold
+          className={styles.icon}
+          alt="degrees"
+          aria-label="degrees"
+        />
       </div>
     </button>
   );

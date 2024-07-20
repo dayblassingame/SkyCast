@@ -43,6 +43,7 @@ export default function Search({ clickHandler }) {
       <input
         id="searchInput"
         name="search"
+        title="search"
         placeholder="Search cities by name or zipcode"
         onClick={clickHandler}
         value={search}
