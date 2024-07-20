@@ -1,7 +1,10 @@
 import React from "react";
 import styles from "./styles/autoComplete.module.scss";
 
-export default function AutoComplete({ list, setCity, closeAutocomplete }) {
+//displays autocomplete suggestions
+export default function AutoComplete({ list, setCity }) {
+  //setCity: callback function to set current city when user selects an autocomplete suggestion
+  //list: list of auto complete suggestions
   return (
     <div className={styles.container}>
       {list.map((item, index) => (

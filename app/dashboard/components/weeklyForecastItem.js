@@ -3,10 +3,10 @@ import React from "react";
 import styles from "./styles/weeklyForecastItem.module.scss";
 
 export default function WeeklyForecastItem({ data, index }) {
-  const itemDay = new Date(data.date).getUTCDay();
-  const day = index == 0 ? "today" : getDayOfWeek(itemDay);
+  const itemDay = new Date(data.date).getUTCDay(); //gets day of the week from date
+  const day = index == 0 ? "today" : getDayOfWeek(itemDay); //sets day to today if index is 0
 
-  const iconSrc = "https:" + data.icon;
+  const iconSrc = "https:" + data.icon; //converts relative icon path to full url
   return (
     <li className={styles.container}>
       <p className={styles.day}>{day}</p>
@@ -22,6 +22,7 @@ export default function WeeklyForecastItem({ data, index }) {
   );
 }
 
+//converts numerical day to name of day of the week
 const getDayOfWeek = (num) => {
   let day = "";
   switch (num) {

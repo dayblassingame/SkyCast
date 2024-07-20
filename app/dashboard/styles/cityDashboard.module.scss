@@ -9,6 +9,26 @@
     min-width: 270px;
     max-width: 600px;
     flex-grow: 0.8;
+
+    .cityDiv {
+      display: flex;
+      align-items: center;
+
+      .delete {
+        border: none;
+        background-color: transparent;
+      }
+
+      .icon {
+        height: 30px;
+        width: 30px;
+        color: white;
+
+        &:hover {
+          color: red;
+        }
+      }
+    }
   }
 
   .right {

@@ -3,6 +3,7 @@ import WeeklyForecastItem from "./weeklyForecastItem";
 import styles from "./styles/weeklyForecast.module.scss";
 
 export default function WeeklyForecast({ backgroundColor, data }) {
+  //data: weekly forecast from store
   return (
     <div
       className={styles.container}

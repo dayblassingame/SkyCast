@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { loadCities, saveCities } from "./localStorage";
 
-const storedData = loadCities();
-const storedIds = storedData.map((item) => item.id);
-
+const storedData = loadCities(); //get data from local storage
+const storedIds = storedData.map((item) => item.id); //get city ids from local storage
+//holds and manipulates weather data
 export const weatherSlice = createSlice({
   name: "weather",
   initialState: {
@@ -63,8 +63,17 @@ export const weatherSlice = createSlice({
         };
       }
     },
+    deleteCity: (state, action) => {
+      state.searchHistoryIds = state.searchHistoryIds.filter(
+        (city) => city != action.payload.id
+      );
+      state.searchHistoryData = state.searchHistoryData.filter(
+        (city) => city.id != action.payload.id
+      );
+      saveCities(state.searchHistoryData);
+    },
   },
 });
 
-export const { setWeather } = weatherSlice.actions;
+export const { setWeather, deleteCity } = weatherSlice.actions;
 export default weatherSlice.reducer;

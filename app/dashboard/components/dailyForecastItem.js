@@ -4,8 +4,9 @@ import { PiCircleBold } from "react-icons/pi";
 import styles from "./styles/dailyForecastItem.module.scss";
 
 export default function DailyForecastItem({ data }) {
-  const time = getStandardHour(new Date(data.time).getUTCHours());
-  const iconSrc = "https:" + data.icon;
+  //data: daily forecast data from store
+  const time = getStandardHour(new Date(data.time).getUTCHours()); //gets hour from data and converts it to standard time
+  const iconSrc = "https:" + data.icon; //convert icon path to full url
 
   return (
     <li className={styles.container}>
@@ -25,6 +26,7 @@ export default function DailyForecastItem({ data }) {
   );
 }
 
+//converts military time to standard time
 const getStandardHour = (hour) => {
   if (hour == 0) {
     return {

@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useRef, useState } from "react";
 import { searchApi } from "./api/searchAPI";
 import styles from "./styles/search.module.scss";
@@ -11,8 +10,8 @@ import { setWeather } from "../lib/weatherSlice";
 const apiKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
 
 export default function Search({ clickHandler }) {
-  const [search, setSearch] = useState("");
-  const [autoComplete, setAutoComplete] = useState([]);
+  const [search, setSearch] = useState(""); //holds search query from input
+  const [autoComplete, setAutoComplete] = useState([]); //stores autocomplete results
   const [error, setError] = useState(false);
   const dispatch = useAppDispatch();
 
@@ -22,7 +21,7 @@ export default function Search({ clickHandler }) {
         setAutoComplete([]);
         return;
       }
-      searchApi(search, apiKey)
+      searchApi(search, apiKey) //get autocomplete results from api
         .then((res) => setAutoComplete(res))
         .catch((err) => setError(true));
     }, [500]);
@@ -31,6 +30,7 @@ export default function Search({ clickHandler }) {
   }, [search]);
 
   async function setCurrentCity(e) {
+    //set current city in store when selected from auto complete results
     fetchCityWeather(e.target.id, apiKey)
       .then((res) => dispatch(setWeather(res)))
       .catch((err) => setError(true));
