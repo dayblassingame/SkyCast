@@ -1,12 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loadCities, saveCities } from "./localStorage";
+import {
+  loadCities,
+  loadCurrent,
+  saveCities,
+  saveCurrent,
+} from "./localStorage";
 
 const storedData = loadCities(); //get data from local storage
 const storedIds = storedData.map((item) => item.id); //get city ids from local storage
-//holds and manipulates weather data
-export const weatherSlice = createSlice({
-  name: "weather",
-  initialState: {
+const loadCurrentCity = loadCurrent();
+
+let initialState = {};
+if (loadCurrentCity == null) {
+  initialState = {
     id: "",
     city: "",
     region: "",
@@ -26,7 +32,15 @@ export const weatherSlice = createSlice({
       humidity: "",
       uvIndex: "",
     },
-  },
+  };
+} else {
+  initialState = { ...loadCurrentCity };
+}
+
+//holds and manipulates weather data
+export const weatherSlice = createSlice({
+  name: "weather",
+  initialState: initialState,
   reducers: {
     setWeather: (state, action) => {
       const newCity = action.payload.id;
@@ -38,6 +52,16 @@ export const weatherSlice = createSlice({
       state.weeklyForecast = action.payload.weeklyForecast;
       state.dailyForecast = action.payload.dailyForecast;
       state.airConditions = action.payload.airConditions;
+
+      saveCurrent({
+        id: state.id,
+        city: state.city,
+        region: state.region,
+        currentWeather: { ...state.currentWeather },
+        weeklyForecast: [...state.weeklyForecast],
+        dailyForecast: [...state.dailyForecast],
+        airConditions: { ...state.airConditions },
+      });
 
       if (!state.searchHistoryIds.includes(newCity)) {
         state.searchHistoryIds.push(newCity);
