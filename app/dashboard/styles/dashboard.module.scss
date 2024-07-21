@@ -3,7 +3,7 @@
 
 .container {
   display: flex;
-  overflow-y: scroll;
+  overflow-y: hidden;
   justify-content: space-between;
   padding: $padding-medium $padding-medium;
   background-color: $navy;

@@ -45,6 +45,7 @@ export default function CityDashboard({ setDash }) {
 
   async function setCurrentCity(e) {
     //fetches weather information for city using id
+    window.scrollTo(0, 0);
     fetchCityWeather(e, apiKey)
       .then((res) => dispatch(setWeather(res), setError(false))) //sets current city in redux store
       .catch((err) => setError(true));

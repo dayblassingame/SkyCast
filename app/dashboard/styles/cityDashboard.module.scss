@@ -4,11 +4,29 @@
 .container {
   display: flex;
   justify-content: space-between;
+  overflow-y: hidden;
+  height: 100%;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   .left {
     min-width: 270px;
     max-width: 600px;
     flex-grow: 0.8;
+    height: 100%;
+
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     @media screen and ((max-width: $media-breakpoint-medium) or (orientation: portrait)) {
       max-width: 100%;
