@@ -10,6 +10,10 @@
     max-width: 600px;
     flex-grow: 0.8;
 
+    @media screen and (max-width: $media-breakpoint-medium) {
+      max-width: 100%;
+    }
+
     .cityDiv {
       display: flex;
       align-items: center;
@@ -34,6 +38,10 @@
   .right {
     flex-grow: 0.2;
     min-width: 300px;
+
+    @media screen and (max-width: $media-breakpoint-medium) {
+      display: none;
+    }
   }
 }
 

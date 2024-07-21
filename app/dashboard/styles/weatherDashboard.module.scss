@@ -8,6 +8,10 @@
   align-items: center;
   column-gap: $margin-small;
 
+  @media screen and (max-width: $media-breakpoint-medium) {
+    flex-direction: column;
+  }
+
   .left {
     height: 100%;
     display: flex;
@@ -16,6 +20,12 @@
     flex-direction: column;
     row-gap: $margin-extrasmall;
     padding: $padding-small 0px;
+
+    @media screen and (max-width: $media-breakpoint-medium) {
+      min-width: 100%;
+      width: 100%;
+      max-width: 100%;
+    }
   }
 
   .right {
@@ -23,6 +33,12 @@
     flex-grow: 0.5;
     display: flex;
     flex-direction: column;
+
+    @media screen and (max-width: $media-breakpoint-medium) {
+      min-width: 100%;
+      width: 100%;
+      max-width: 100%;
+    }
   }
 }
 
