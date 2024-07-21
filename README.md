@@ -1,7 +1,6 @@
 ## SkyCast
 Welcome to the SkyCast repository, your reliable source for real-time weather forecasts and alerts.
 
-
 # Dev Environment
 First, run 
 ```bash
@@ -18,3 +17,30 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+Technologies Used
+Frontend: Nextjs, React, Redux, JavaScript, SCSS modules, local storage
+Backend: WeatherAPI integration
+Containerization and deployment: Vercel
+Other: Git
+
+Features
+Local Storage: Search history is stored in local storage as well as last searched city, allowing users to quickly retrieve weather information for their favorite locations.
+Navigation: Fixed navigation to enhance usability.
+Search Functionality: Users can search for cities by name or zip code
+Weather Dashboard: Users can see current weather conditions, current air conditions, hourly and weekly forecast.
+City Dashboard: Users can view and delete previously searched cities stored in redux store. Large devices also display a preview of current weather conditions.
+Responsive Design: The application uses flexbox to ensure optimal viewing and interaction across various devices and screen sizes.
+Async Programming: Leveraged asynchronous programming and fetch api to retrieve and display data from WeatherAPI and auto-cache results to minimize server hits.
+
+Installation
+To run locally:
+Clone this repository
+Install dependencies: run npm install
+Run webpack server: run npm start
+
+License
+This project is licensed under the Apache 2.0 License.
+
+Acknowledgements
+TheCocktailDB.com
