@@ -61,8 +61,12 @@ export default function CityDashboard({ setDash }) {
   };
 
   return !empty ? (
-    <div id="cityDashboard" className={styles.container}>
-      <ul className={styles.left}>
+    <div
+      aria-label="city dashboard"
+      id="cityDashboard"
+      className={styles.container}
+    >
+      <ul className={styles.left} aria-label="search history">
         {cityList.map((cityData, index) => (
           <div className={styles.cityDiv} key={index}>
             <City
@@ -72,6 +76,9 @@ export default function CityDashboard({ setDash }) {
               doubleClick={cityDoubleClick}
             />
             <button
+              role="button"
+              aria-label={`delete ${cityData.city}`}
+              title={"delete"}
               className={styles.delete}
               key={index}
               onClick={() => removeCity(cityData.id)}

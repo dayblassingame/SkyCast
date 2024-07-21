@@ -22,14 +22,22 @@ export default function Dashboard() {
     <StoreProvider>
       <main>
         <div className={styles.container}>
-          <div className={styles.left}>
+          <nav role="navigation" className={styles.left}>
             <button
+              role="button"
+              alt-text="logo"
+              aria-label="home"
+              title="home"
               className={styles.logoIcon}
               onClick={() => setDash({ city: false, weather: true })}
             >
               <FaUmbrella />
             </button>
             <button
+              role="button"
+              alt-text="weather dashboard"
+              aria-label="weather dashboard"
+              title="weather dashboard"
               onClick={() => setDash({ city: false, weather: true })}
               className={weather ? styles.selected : ""}
             >
@@ -37,13 +45,17 @@ export default function Dashboard() {
               Weather
             </button>
             <button
+              role="button"
+              alt-text="city dashboard"
+              aria-label="city dashboard"
+              title="city dashbaord"
               onClick={() => setDash({ city: true, weather: false })}
               className={city ? styles.selected : ""}
             >
               <IoIosList className={styles.icon} />
               Cities
             </button>
-          </div>
+          </nav>
           <div className={styles.right}>
             <Search
               clickHandler={
