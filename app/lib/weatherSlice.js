@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loadCities, saveCities } from "./localStorage";
+import { loadCities, saveCities, saveCurrent } from "./localStorage";
 
 const storedData = loadCities(); //get data from local storage
 const storedIds = storedData.map((item) => item.id); //get city ids from local storage
@@ -39,6 +39,9 @@ export const weatherSlice = createSlice({
       state.dailyForecast = action.payload.dailyForecast;
       state.airConditions = action.payload.airConditions;
 
+      saveCurrent({
+        id: newCity,
+      });
       if (!state.searchHistoryIds.includes(newCity)) {
         state.searchHistoryIds.push(newCity);
         state.searchHistoryData.push({
