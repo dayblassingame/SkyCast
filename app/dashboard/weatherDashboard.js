@@ -37,7 +37,7 @@ export default function WeatherDashboard() {
 
   useEffect(() => {
     let currentCity = loadCurrent();
-    if (currentCity !== null || currentCity != "") {
+    if (currentCity !== null && currentCity != "") {
       fetchCityWeather(currentCity.id, apiKey)
         .then((res) => dispatch(setWeather(res)))
         .catch((err) => setError(true));
