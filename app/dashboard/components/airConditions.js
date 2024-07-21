@@ -10,42 +10,54 @@ import { PiCircleBold } from "react-icons/pi";
 //display current air conditions in current city selected
 export default function AirConditions({ data }) {
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <div className={styles.containerHead}>
         <label>Air Conditions</label>
-        <button className={buttonStyles.button} disabled={true}>
+        <button
+          className={buttonStyles.button}
+          aria-disabled={true}
+          disabled={true}
+        >
           See More
         </button>
       </div>
       <div className={styles.main}>
-        <div className={styles.section}>
+        <div
+          className={styles.section}
+          title="real feel"
+          aria-label="real feel"
+        >
           <label>
             <IoThermometerOutline /> Real Feel
           </label>
-          <span>
+          <span aria-label={data.realFeel + " degrees"}>
             <h3>{data.realFeel}</h3>
-            <PiCircleBold className={styles.icon} />
+            <PiCircleBold className={styles.icon} alt="degrees" />
           </span>
         </div>
-        <div className={styles.section}>
+        <div
+          className={styles.section}
+          title="windspeed"
+          aria-label="wind speed"
+        >
           <label>
             <FaWind /> Wind
           </label>
           <h3>{data.windSpeed} mph</h3>
         </div>
-        <div className={styles.section}>
+        <div className={styles.section} title="humidity" aria-label="humidity">
           <label>
             <MdWaterDrop /> Humidity
           </label>
           <h3>{data.humidity}%</h3>
         </div>
-        <div className={styles.section}>
+        <div className={styles.section} title="uv index" aria-label="uv index">
           <label>
             <FaSun /> UV Index
           </label>
           <h3>{data.uvIndex}</h3>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

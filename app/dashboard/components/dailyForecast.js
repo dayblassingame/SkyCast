@@ -5,7 +5,8 @@ import styles from "./styles/dailyForecast.module.scss";
 export default function DailyForecast({ backgroundColor, data }) {
   //data: hourly forecast info from store
   return (
-    <div
+    <section
+      aria-label="hourly forecast"
       className={styles.container}
       style={{ backgroundColor: backgroundColor }}
     >
@@ -15,6 +16,6 @@ export default function DailyForecast({ backgroundColor, data }) {
           <DailyForecastItem data={item} key={index} />
         ))}
       </ul>
-    </div>
+    </section>
   );
 }

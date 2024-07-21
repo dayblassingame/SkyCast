@@ -1,25 +1,25 @@
-@import '../../../styles/base/typography';
-@import '../../../styles/base/variables';
+@import "../../../styles/base/typography";
+@import "../../../styles/base/variables";
 
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: $padding-medium $padding-medium;
+  border-radius: 20px;
+  background-color: $overlay;
+  color: $lightgrey;
 
-.container{
+  label {
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  ul {
     display: flex;
     flex-direction: column;
-    padding: $padding-medium $padding-medium;
-    border-radius: 20px;
-    background-color: $overlay;
-    color: $lightgrey;
-
-    label{
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        font-size: 14px;
-        line-height: 24px;
-    }
-
-    ul{
-        display: flex;
-        flex-direction: column;
-        list-style: none;
-    }
+    list-style: none;
+  }
 }

@@ -7,10 +7,16 @@ import AirConditions from "./components/airConditions";
 import WeeklyForecast from "./components/weeklyForecast";
 import styles from "./styles/weatherDashboard.module.scss";
 
-import { useAppSelector } from "../lib/hooks";
+import { useAppDispatch, useAppSelector } from "../lib/hooks";
+import { loadCurrent } from "../lib/localStorage";
+import { fetchCityWeather } from "./api/fetchCityWeather";
+import { setWeather } from "../lib/weatherSlice";
+
+const apiKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
 
 //displays full weather information about current city set
 export default function WeatherDashboard() {
+  const dispatch = useAppDispatch();
   const current = {
     //gets current weather conditions from store
     city: useAppSelector((state) => state.weather.city),
@@ -28,6 +34,15 @@ export default function WeatherDashboard() {
   useEffect(() => {
     setError(current.city == "");
   }, [current.city]);
+
+  useEffect(() => {
+    let currentCity = loadCurrent();
+    if (currentCity !== null && currentCity != "") {
+      fetchCityWeather(currentCity.id, apiKey)
+        .then((res) => dispatch(setWeather(res)))
+        .catch((err) => setError(true));
+    }
+  }, []);
 
   return !error ? (
     <div id="weatherDashboard" className={styles.container}>

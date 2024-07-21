@@ -20,3 +20,25 @@ export const saveCities = (cityData) => {
     console.log("local storage disabled");
   }
 };
+
+//add search history to local storage
+export const saveCurrent = (cityData) => {
+  try {
+    const currentCity = JSON.stringify(cityData);
+    localStorage.setItem("currentCity", currentCity);
+  } catch {
+    console.log("local storage disabled");
+  }
+};
+
+export const loadCurrent = () => {
+  try {
+    const storedCity = localStorage.getItem("currentCity");
+    if (storedCity === null) {
+      return null;
+    }
+    return JSON.parse(storedCity);
+  } catch (err) {
+    return null;
+  }
+};

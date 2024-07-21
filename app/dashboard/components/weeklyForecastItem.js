@@ -8,15 +8,20 @@ export default function WeeklyForecastItem({ data, index }) {
 
   const iconSrc = "https:" + data.icon; //converts relative icon path to full url
   return (
-    <li className={styles.container}>
+    <li className={styles.container} aria-label={`forecast for ${day}`}>
       <p className={styles.day}>{day}</p>
       <span className={styles.conditionSpan}>
-        <img alt="condition" name="condition" src={iconSrc} />
+        <img
+          alt={data.iconText}
+          aria-label={data.iconText}
+          name="condition"
+          src={iconSrc}
+        />
         <h4>{data.iconText}</h4>
       </span>
-      <span className={styles.tempSpan}>
-        <h4>{data.max}</h4>
-        <p>/{data.min}</p>
+      <span aria-label="temperature" className={styles.tempSpan}>
+        <h4 aria-label="high">{data.max}</h4>
+        <p aria-label="low">/{data.min}</p>
       </span>
     </li>
   );

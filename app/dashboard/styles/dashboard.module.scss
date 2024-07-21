@@ -3,12 +3,16 @@
 
 .container {
   display: flex;
-  overflow-y: scroll;
+  overflow-y: hidden;
   justify-content: space-between;
   padding: $padding-medium $padding-medium;
   background-color: $navy;
   height: 100vh;
   width: 100%;
+
+  @media screen and (max-width: $media-breakpoint-medium) {
+    overflow-y: hidden;
+  }
 
   .left {
     display: flex;
@@ -17,6 +21,20 @@
     padding: $margin-extrasmall;
     background-color: $overlay;
     border-radius: 20px;
+
+    @media screen and (max-width: $media-breakpoint-medium) {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      max-width: 100%;
+      width: 100%;
+      height: 60px;
+      position: fixed;
+      top: calc(100% - 70px);
+      left: 0;
+      background-color: $navy;
+    }
 
     button {
       background-color: transparent;
@@ -49,6 +67,10 @@
       margin-bottom: $margin-medium;
       transform: rotate(25deg);
 
+      @media screen and (max-width: $media-breakpoint-medium) {
+        display: none;
+      }
+
       &:hover,
       &:active {
         color: $lightBlue;
@@ -62,5 +84,15 @@
     display: flex;
     flex-direction: column;
     row-gap: $margin-small;
+    height: 100%;
+
+    @media screen and (max-width: $media-breakpoint-medium) {
+      width: 100%;
+      height: calc(100% - 60px);
+      padding: $padding-extrasmall $padding-extrasmall;
+      overflow-y: scroll;
+      margin-top: $margin-small;
+      margin-bottom: 20%;
+    }
   }
 }
